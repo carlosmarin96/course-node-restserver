@@ -39,6 +39,17 @@ const verifyProductById = async (id) => {
     }
 }
 
+//collections
+
+const collectionsAllowed = (collection = '', collections = []) => {
+    const included = collections.includes(collection);
+    if (!included) {
+        throw new Error(`${collection} is not allowed, ${collections}`);
+    }
+
+    return true;
+}
+
 
 
 
@@ -47,5 +58,6 @@ module.exports = {
     validEmail,
     validUserById,
     verifyCategoryById,
-    verifyProductById
+    verifyProductById,
+    collectionsAllowed
 }
